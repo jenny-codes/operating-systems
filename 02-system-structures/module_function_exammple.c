@@ -19,6 +19,7 @@ void simple_exit(void)
 module_init(simple_init);
 module_exit(simple_exit);
 
+// Standard Practice
 MODULE_LICENCE("GPL");
 MODULE_DESCRIPTION("SIMPLE MODULE");
 MODULE_ARTHUR("JS");
