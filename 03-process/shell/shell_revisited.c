@@ -36,9 +36,9 @@ char *builtin_str[] = {
 };
 
 int (*builtin_func[]) (char **) = {
-    &lsh_cd,
-    &lsh_help,
-    &lsh_exit
+    &jsh_cd,
+    &jsh_help,
+    &jsh_exit
 };
 
 int lsh_num_builtins(){
