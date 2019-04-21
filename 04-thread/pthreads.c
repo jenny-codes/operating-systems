@@ -39,3 +39,15 @@ void *runner(void *param)
 
   pthread_exit(0);
 }
+
+// code for joining 10 threads
+
+#define NUM_THREADS 10
+
+/* an array of threads to be joined upon */
+pthread_t workers[NUM_THREADS];
+
+for (int i  = 0; i < NUM_THREADS; i++)
+  pthread_join(workers[i], NULL);
+
+
