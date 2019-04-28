@@ -55,8 +55,8 @@ void *philosophing(void *arg)
   while(1) {
     int *ph_num = arg;
     printf("Philosopher #%d starts thinking.\n", *ph_num + 1);
+    sleep(2);
     pickup_forks(*ph_num);
-    sleep(1);
     return_forks(*ph_num);
   }
 }
@@ -76,7 +76,7 @@ void pickup_forks(int ph_num) {
 void return_forks(int ph_num) {
   pthread_mutex_lock(&mutex);
 
-  printf("Philosopher #%d is done eating. Now she asks her neighbors if they are hungry.\n", ph_num + 1);
+  printf("Philosopher #%d puts down chopsticks. Now she asks her neighbors if they are hungry.\n", ph_num + 1);
   state[ph_num] = THINKING;
   test(LEFT);
   test(RIGHT);
@@ -88,9 +88,9 @@ void test(int ph_num) {
   if (state[ph_num] == HUNGRY && 
       state[LEFT] != EATING && 
       state[RIGHT] != EATING) {
-    printf("Philosopher #%d is EATING.\n", ph_num + 1);
+    printf("Philosopher #%d starts EATING.\n", ph_num + 1);
     state[ph_num] = EATING;
-    sleep(1);
+    sleep(3);
     pthread_cond_signal(&condition[ph_num]);
   }
 }
